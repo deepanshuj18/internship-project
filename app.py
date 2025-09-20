@@ -3,7 +3,8 @@ import os
 import json
 from typing import List, Dict, Tuple, Optional
 import google.generativeai as genai
-from pinecone import Pinecone, ServerlessSpec
+#from pinecone import Pinecone, ServerlessSpec
+import pinecone
 import numpy as np
 from datetime import datetime
 import re
@@ -56,7 +57,7 @@ class RAGChatbot:
             st.error(f"❌ Failed to initialize Gemini: {str(e)}")
             st.stop()
     
-    def setup_pinecone(self):
+    '''def setup_pinecone(self):
         """Initialize Pinecone vector database"""
         try:
             self.pc = Pinecone(api_key=self.pinecone_api_key)
@@ -66,8 +67,37 @@ class RAGChatbot:
             st.success("✅ Pinecone initialized successfully")
         except Exception as e:
             st.error(f"❌ Failed to initialize Pinecone: {str(e)}")
+            st.stop()'''
+    '''def setup_pinecone(self):
+        try:
+          
+          pinecone.init(api_key=self.pinecone_api_key, environment=os.getenv("PINECONE_ENV"))
+          self.index_name = "rag-chatbot-index"  # replace with your actual index name
+          self.index = pinecone.Index(self.index_name)
+          st.success("✅ Pinecone initialized successfully")
+        except Exception as e:
+          st.error(f"❌ Failed to initialize Pinecone: {str(e)}")
+          st.stop()'''
+    def setup_pinecone(self):
+
+        """Initialize Pinecone vector database using the new SDK"""
+        try:
+           
+           from pinecone import Pinecone
+
+        # Create Pinecone client
+           pc = Pinecone(api_key=self.pinecone_api_key)
+
+        # Connect to your index
+           self.index_name = "rag-chatbot-index"  # replace with your actual index name
+           self.index = pc.Index(self.index_name)
+
+           st.success("✅ Pinecone initialized successfully")
+        except Exception as e:
+
+            st.error(f"❌ Failed to initialize Pinecone: {str(e)}")
             st.stop()
-    
+
     def detect_intent(self, query: str) -> str:
         """Detect if query is about NEC, Wattmonk, or general"""
         query_lower = query.lower()
