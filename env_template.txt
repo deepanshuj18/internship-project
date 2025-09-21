@@ -2,11 +2,11 @@
 
 # Google Generative AI API Key
 # Get it from: https://makersuite.google.com/app/apikey
-GOOGLE_API_KEY=your_google_api_key_here
+GOOGLE_API_KEY=AIzaSyAJfjpFYlSaAXohXxrqrl6LyMJtgMuhEvY
 
 # Pinecone API Key
 # Get it from: https://app.pinecone.io/
-PINECONE_API_KEY=your_pinecone_api_key_here
+PINECONE_API_KEY=pcsk_khgfA_3pRgZebTmAKNtQVb5NV9gMGA4rwwaCeCYEwWugXHVAvGzZUxCmPf5ngJSH6afhJ
 
 # Optional: Pinecone Index Name (defaults to 'rag-chatbot-index')
 PINECONE_INDEX_NAME=rag-chatbot-index
