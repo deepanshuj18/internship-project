@@ -257,7 +257,7 @@ class RAGChatbot:
 
 def main():
     st.title("🤖 RAG Chatbot - NEC vs Wattmonk")
-    st.markdown("Ask questions about electrical engineering, NEC codes, or energy monitoring systems!")
+    st.markdown("Ask questions about  NEC codes, or  wattmonk technologies!")
     
     # Initialize chatbot
     if "chatbot" not in st.session_state:
@@ -287,7 +287,7 @@ def main():
                         st.markdown("---")
     
     # Chat input
-    if prompt := st.chat_input("Ask me anything about electrical engineering..."):
+    if prompt := st.chat_input("Ask me anything about wattmonk or nec  ..."):
         # Add user message to chat
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
