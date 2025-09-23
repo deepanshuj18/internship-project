@@ -33,7 +33,7 @@ A complete Retrieval-Augmented Generation (RAG) chatbot built with Streamlit, Go
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/deepanshuj18/internship-project
 cd rag-chatbot
 
 # Install dependencies
